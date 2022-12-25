@@ -33,19 +33,23 @@ class JavalinConfig {
                     get(HealthTrackerController::getUserByUserId)
                     delete(HealthTrackerController::deleteUser)
                     patch(HealthTrackerController::updateUser)
-                    //The overall path is: "/api/users/:user-id/activities"
                     path("activities"){
                         get(HealthTrackerController::getActivitiesByUserId)
+                        delete(HealthTrackerController::deleteActivityByUserId)
                     }
                 }
                 path("/email/{email}"){
                     get(HealthTrackerController::getUserByEmail)
                 }
             }
-
             path("/api/activities") {
                 get(HealthTrackerController::getAllActivities)
                 post(HealthTrackerController::addActivity)
+                path("{activity-id}") {
+                    get(HealthTrackerController::getActivitiesByActivityId)
+                    delete(HealthTrackerController::deleteActivityByActivityId)
+                    patch(HealthTrackerController::updateActivity)
+                }
             }
         }
     }
