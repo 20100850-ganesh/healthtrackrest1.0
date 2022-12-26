@@ -1,7 +1,6 @@
 package ie.setu.domain.repository
 
 import ie.setu.domain.Diet
-import ie.setu.domain.db.Activities
 import ie.setu.domain.db.Diets
 import ie.setu.utils.mapToDiet
 import org.jetbrains.exposed.sql.*
@@ -69,7 +68,7 @@ class DietDAO {
 
     fun deleteByUserId (userId: Int): Int{
         return transaction{
-            Activities.deleteWhere { Activities.userId eq userId }
+            Diets.deleteWhere { Diets.userId eq userId }
         }
     }
 }
