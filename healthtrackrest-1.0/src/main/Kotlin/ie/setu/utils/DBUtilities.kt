@@ -1,12 +1,8 @@
 package ie.setu.utils
 
-import ie.setu.domain.User
-import ie.setu.domain.db.Users
+import ie.setu.domain.*
+import ie.setu.domain.db.*
 import org.jetbrains.exposed.sql.ResultRow
-import ie.setu.domain.Activity
-import ie.setu.domain.Diet
-import ie.setu.domain.db.Activities
-import ie.setu.domain.db.Diets
 
 fun mapToUser(it: ResultRow) = User(
     id = it[Users.id],
@@ -30,4 +26,22 @@ fun mapToDiet(it: ResultRow) = Diet(
     calories = it[Diets.calories],
     intake = it[Diets.intake],
     userId = it[Diets.userId]
+)
+
+fun mapToSleep(it: ResultRow) = Sleep(
+    id = it[Sleeps.id],
+    duration = it[Sleeps.duration],
+    phase = it[Sleeps.phase],
+    day = it[Sleeps.day],
+    starttime = it[Sleeps.starttime],
+    userId = it[Sleeps.userId]
+)
+
+fun mapToMedicine(it: ResultRow) = Medicine(
+    id = it[Medicines.id],
+    description = it[Medicines.description],
+    medicine = it[Medicines.medicine],
+    day = it[Medicines.day],
+    intake = it[Medicines.intake],
+    userId = it[Medicines.userId]
 )

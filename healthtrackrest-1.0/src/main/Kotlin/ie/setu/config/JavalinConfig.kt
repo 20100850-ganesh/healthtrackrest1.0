@@ -2,6 +2,8 @@ package ie.setu.config
 
 import ie.setu.controllers.DietTrackerController
 import ie.setu.controllers.HealthTrackerController
+import ie.setu.controllers.MedicinetrackerController
+import ie.setu.controllers.SleepTrackerController
 import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.*
 
@@ -42,6 +44,14 @@ class JavalinConfig {
                         get(DietTrackerController::getDietsByUserId)
                         delete(DietTrackerController::deleteDietByUserId)
                     }
+                    path("sleeps"){
+                        get(SleepTrackerController::getSleepsByUserId)
+                        delete(SleepTrackerController::deleteSleepByUserId)
+                    }
+                    path("medicines"){
+                        get(MedicinetrackerController::getMedicinesByUserId)
+                        delete(MedicinetrackerController::deleteMedicineByUserId)
+                    }
                 }
                 path("/email/{email}"){
                     get(HealthTrackerController::getUserByEmail)
@@ -63,6 +73,24 @@ class JavalinConfig {
                     get(DietTrackerController::getDietsByDietId)
                     delete(DietTrackerController::deleteDietByDietId)
                     patch(DietTrackerController::updateDiet)
+                }
+            }
+            path("/api/sleeps"){
+                get(SleepTrackerController::getAllSleeps)
+                post(SleepTrackerController::addSleep)
+                path("{sleep-id}"){
+                    get(SleepTrackerController::getSleepsBySleepId)
+                    delete(SleepTrackerController::deleteSleepBySleepId)
+                    patch(SleepTrackerController::updateSleep)
+                }
+            }
+            path("/api/medicines"){
+                get(MedicinetrackerController::getAllMedicines)
+                post(MedicinetrackerController::addMedicine)
+                path("{medicine-id}"){
+                    get(MedicinetrackerController::getMedicinesByMedicineId)
+                    delete(MedicinetrackerController::deleteMedicineByMedicineId)
+                    patch(MedicinetrackerController::updateMedicine)
                 }
             }
         }
