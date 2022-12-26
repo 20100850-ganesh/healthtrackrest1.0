@@ -1,5 +1,6 @@
 package ie.setu.config
 
+import ie.setu.controllers.DietTrackerController
 import ie.setu.controllers.HealthTrackerController
 import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.*
@@ -37,6 +38,10 @@ class JavalinConfig {
                         get(HealthTrackerController::getActivitiesByUserId)
                         delete(HealthTrackerController::deleteActivityByUserId)
                     }
+                    path("diets"){
+                        get(DietTrackerController::getDietsByUserId)
+                        delete(DietTrackerController::deleteDietByUserId)
+                    }
                 }
                 path("/email/{email}"){
                     get(HealthTrackerController::getUserByEmail)
@@ -49,6 +54,15 @@ class JavalinConfig {
                     get(HealthTrackerController::getActivitiesByActivityId)
                     delete(HealthTrackerController::deleteActivityByActivityId)
                     patch(HealthTrackerController::updateActivity)
+                }
+            }
+            path("/api/diets"){
+                get(DietTrackerController::getAllDiets)
+                post(DietTrackerController::addDiet)
+                path("{diet-id}"){
+                    get(DietTrackerController::getDietsByDietId)
+                    delete(DietTrackerController::deleteDietByDietId)
+                    patch(DietTrackerController::updateDiet)
                 }
             }
         }
