@@ -61,8 +61,8 @@
            v-bind:key="index">
         <div class="mr-auto p-2">
 
-          <span><a :href="`/activities/${activity.id}`"> Description:{{ activity.description }}, Duration:({{
-              activity.duration}}), Calories:({{activity.calories}}), Start-Time:({{activity.started}}), User-Id:({{activity.userId}})
+          <span><a :href="`/activities/${activity.id}`"> <span class="text-success">Description:</span>{{ activity.description }}, <span class="text-success">Duration:</span>({{
+              activity.duration}}), <span class="text-success">Calories:</span>({{activity.calories}}), <span class="text-success">Start-Time:</span>({{activity.started}}), <span class="text-success">User-Id:</span>({{activity.userId}})
                         </a></span>
         </div>
         <div class="p2">

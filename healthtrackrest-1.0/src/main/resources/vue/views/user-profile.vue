@@ -44,12 +44,39 @@
           </div>
         </form>
       </div>
+    </div>
+    <div class="card-footer text-left">
+      <p v-if="activities.length == 0"> No activities yet...</p>
+      <p v-if="activities.length > 0"> Activities so far...</p>
+      <ul>
+        <li v-for="activity in activities">
+          {{ activity.description }} for {{ activity.duration }} minutes
+        </li>
+      </ul>
       <div class="card-footer text-left">
-        <p  v-if="activities.length == 0"> No activities yet...</p>
-        <p  v-if="activities.length > 0"> Activities so far...</p>
+                <p v-if="sleeps.length == 0"> No Sleep yet...</p>
+                <p v-if="sleeps.length > 0"> Sleep so far...</p>
         <ul>
-          <li v-for="activity in activities">
-            {{ activity.description }} for {{ activity.duration }} minutes
+          <li v-for="sleep in sleeps">
+        {{ sleep.duration }} hours on {{ sleep.day }}.
+          </li>
+        </ul>
+      </div>
+      <div class="card-footer text-left">
+        <p v-if="diets.length == 0"> No diet yet...</p>
+        <p v-if="diets.length > 0"> Diet so far...</p>
+        <ul>
+          <li v-for="diet in diets">
+            {{ diet.description }} with {{ diet.calories }} Calories.
+          </li>
+        </ul>
+      </div>
+      <div class="card-footer text-left">
+        <p v-if="medicines.length == 0"> No medicines yet...</p>
+        <p v-if="medicines.length > 0"> Medicines so far...</p>
+        <ul>
+          <li v-for="medicine1 in medicines">
+            {{ medicine1.description }} - {{medicine1.medicine}} on {{ medicine1.day }}.
           </li>
         </ul>
       </div>
@@ -64,6 +91,9 @@ Vue.component("user-profile", {
     user: null,
     noUserFound: false,
     activities: [],
+    sleeps: [],
+    diets: [],
+    medicines: []
   }),
   created: function () {
     const userId = this.$javalin.pathParams["user-id"];
@@ -78,6 +108,21 @@ Vue.component("user-profile", {
         .then(res => this.activities = res.data)
         .catch(error => {
           console.log("No activities added yet (this is ok): " + error)
+        })
+    axios.get(url + `/sleeps`)
+        .then(res => this.sleeps = res.data)
+        .catch(error => {
+          console.log("No sleep added yet (this is ok): " + error)
+        })
+    axios.get(url + `/diets`)
+        .then(res => this.diets = res.data)
+        .catch(error => {
+          console.log("No Diet added yet (this is ok): " + error)
+        })
+    axios.get(url + `/medicines`)
+        .then(res => this.medicines = res.data)
+        .catch(error => {
+          console.log("No Medicine added yet (this is ok): " + error)
         })
   },
   methods: {

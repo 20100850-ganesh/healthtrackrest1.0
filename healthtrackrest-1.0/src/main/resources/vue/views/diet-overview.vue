@@ -59,8 +59,8 @@
     <div class="list-group list-group-flush">
       <div class="list-group-item d-flex align-items-start" v-for="(diet,index) in diets" v-bind:key="index">
         <div class="mr-auto p-2">
-          <span><a :href="`/diets/${diet.id}`"> Description:{{ diet.description }}, Food-Name:({{
-              diet.food}}), Calories:({{diet.calories}}), Intake-Time:({{diet.intake}}), UserId:({{diet.userId}})
+          <span><a :href="`/diets/${diet.id}`"> <span class="text-success">Description:</span>{{ diet.description }}, <span class="text-success">Food-Name:</span>({{
+              diet.food}}), <span class="text-success">Calories:</span>({{diet.calories}}), <span class="text-success">Intake-Time:</span>({{diet.intake}}), <span class="text-success">UserId:</span>({{diet.userId}})
                         </a></span>
         </div>
         <div class="p2">

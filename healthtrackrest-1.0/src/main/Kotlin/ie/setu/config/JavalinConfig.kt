@@ -110,9 +110,13 @@ class JavalinConfig {
             get("/users", VueComponent("<user-overview></user-overview>"))
             get("/users/{user-id}", VueComponent("<user-profile></user-profile>"))
             get("/activities", VueComponent("<activity-overview></activity-overview>"))
+            get("/activities/{activity-id}", VueComponent("<activity-profile></activity-profile>"))
             get("/diets", VueComponent("<diet-overview></diet-overview>"))
+            get("/diets/{diet-id}", VueComponent("<diet-profile></diet-profile>"))
             get("/sleeps", VueComponent("<sleep-overview></sleep-overview>"))
+            get("/sleeps/{sleep-id}", VueComponent("<sleep-profile></sleep-profile>"))
             get("/medicines", VueComponent("<medicine-overview></medicine-overview>"))
+            get("/medicines/{medicine-id}", VueComponent("<medicine-profile></medicine-profile>"))
 
         }
     }

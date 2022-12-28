@@ -60,8 +60,8 @@
            v-bind:key="index">
         <div class="mr-auto p-2">
 
-          <span><a :href="`/medicines/${medicine1.id}`"> Description:{{ medicine1.description }}, Medicine-Name:({{
-              medicine1.medicine}}), Intake-Day:({{medicine1.day}}), Intake-Date:({{medicine1.intake}}), User-Id:({{medicine1.userId}})
+          <span><a :href="`/medicines/${medicine1.id}`"> <span class="text-success">Description:</span>{{ medicine1.description }}, <span class="text-success">Medicine-Name:</span>({{
+              medicine1.medicine}}), <span class="text-success">Intake-Day:</span>({{medicine1.day}}), <span class="text-success">Intake-Date:</span>({{medicine1.intake}}), <span class="text-success">User-Id:</span>({{medicine1.userId}})
                         </a></span>
         </div>
         <div class="p2">

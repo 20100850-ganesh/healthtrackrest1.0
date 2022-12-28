@@ -13,11 +13,38 @@
       </div>
       <div class="col">
         <div class="card">
-          <h5 class="card-header">Total Activities</h5>
+          <h5 class="card-header">Activities Tracker</h5>
           <div class="card-body">
             <h5 class="card-title">{{activities.length}} activities</h5>
             <a href="/activities" class="btn btn-primary">More Details...</a>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h5 class="card-header">Diet Tracker</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{diets.length}} diets</h5>
+          <a href="/diets" class="btn btn-primary">More Details...</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h5 class="card-header">Sleep Tracker</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{sleeps.length}} dozes</h5>
+          <a href="/sleeps" class="btn btn-primary">More Details...</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h5 class="card-header">Medicine Tracker</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{medicines.length}} medicines</h5>
+          <a href="/medicines" class="btn btn-primary">More Details...</a>
         </div>
       </div>
     </div>
@@ -30,7 +57,10 @@ Vue.component('home-page',
       template: "#home-page",
       data: () => ({
         users: [],
-        activities: []
+        activities: [],
+        diets: [],
+        sleeps: [],
+        medicines: []
       }),
       created() {
         axios.get("/api/users")
@@ -39,6 +69,15 @@ Vue.component('home-page',
         axios.get("/api/activities")
             .then(res => this.activities = res.data)
             .catch(() => alert("Error while fetching activities"));
+        axios.get("/api/diets")
+            .then(res => this.diets = res.data)
+            .catch(() => alert("Error while fetching diets"));
+        axios.get("/api/sleeps")
+            .then(res => this.sleeps = res.data)
+            .catch(() => alert("Error while fetching sleeps"));
+        axios.get("/api/medicines")
+            .then(res => this.medicines = res.data)
+            .catch(() => alert("Error while fetching medicines"));
       }
     });
 </script>

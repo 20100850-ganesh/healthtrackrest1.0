@@ -59,8 +59,8 @@
       <div class="list-group-item d-flex align-items-start" v-for="(sleep,index) in sleeps" v-bind:key="index">
         <div class="mr-auto p-2">
 
-          <span><a :href="`/sleeps/${sleep.id}`"> Duration(in Hours):{{ sleep.duration }}, Phase:({{
-              sleep.phase}}), Day-of-Week:({{sleep.day}}), Date-Time:({{sleep.starttime}}), User-Id:({{sleep.userId}})
+          <span><a :href="`/sleeps/${sleep.id}`"> <span class="text-success">Duration(in Hours):</span>{{ sleep.duration }}, <span class="text-success">Phase:</span>({{
+              sleep.phase}}), <span class="text-success">Day-of-Week:</span>({{sleep.day}}), <span class="text-success">Date-Time:</span>({{sleep.starttime}}), <span class="text-success">User-Id:</span>({{sleep.userId}})
                         </a></span>
         </div>
         <div class="p2">
