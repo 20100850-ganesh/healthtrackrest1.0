@@ -20,6 +20,15 @@
             <li class="nav-item">
               <a class="nav-link" href="/activities">Activities</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/diets">Diet</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sleeps">Sleep</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/medicines">Medicines</a>
+            </li>
           </ul>
         </div>
       </nav>
