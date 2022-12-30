@@ -1,7 +1,8 @@
 package ie.setu.config
 
 import ie.setu.controllers.DietTrackerController
-import ie.setu.controllers.HealthTrackerController
+import ie.setu.controllers.UserTrackerController
+import ie.setu.controllers.ActivityTrackerController
 import ie.setu.controllers.MedicinetrackerController
 import ie.setu.controllers.SleepTrackerController
 import io.javalin.Javalin
@@ -40,15 +41,15 @@ class JavalinConfig {
         app.routes {
 
             path("/api/users") {
-                get(HealthTrackerController::getAllUsers)
-                post(HealthTrackerController::addUser)
+                get(UserTrackerController::getAllUsers)
+                post(UserTrackerController::addUser)
                 path("{user-id}"){
-                    get(HealthTrackerController::getUserByUserId)
-                    delete(HealthTrackerController::deleteUser)
-                    patch(HealthTrackerController::updateUser)
+                    get(UserTrackerController::getUserByUserId)
+                    delete(UserTrackerController::deleteUser)
+                    patch(UserTrackerController::updateUser)
                     path("activities"){
-                        get(HealthTrackerController::getActivitiesByUserId)
-                        delete(HealthTrackerController::deleteActivityByUserId)
+                        get(ActivityTrackerController::getActivitiesByUserId)
+                        delete(ActivityTrackerController::deleteActivityByUserId)
                     }
                     path("diets"){
                         get(DietTrackerController::getDietsByUserId)
@@ -64,16 +65,16 @@ class JavalinConfig {
                     }
                 }
                 path("/email/{email}"){
-                    get(HealthTrackerController::getUserByEmail)
+                    get(UserTrackerController::getUserByEmail)
                 }
             }
             path("/api/activities") {
-                get(HealthTrackerController::getAllActivities)
-                post(HealthTrackerController::addActivity)
+                get(ActivityTrackerController::getAllActivities)
+                post(ActivityTrackerController::addActivity)
                 path("{activity-id}") {
-                    get(HealthTrackerController::getActivitiesByActivityId)
-                    delete(HealthTrackerController::deleteActivityByActivityId)
-                    patch(HealthTrackerController::updateActivity)
+                    get(ActivityTrackerController::getActivitiesByActivityId)
+                    delete(ActivityTrackerController::deleteActivityByActivityId)
+                    patch(ActivityTrackerController::updateActivity)
                 }
             }
             path("/api/diets"){
